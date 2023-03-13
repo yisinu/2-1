@@ -1,1 +1,12 @@
 
+public class pkg {
+
+	public static void main(String[] args) {
+		System.out.println("Hello, world!");
+		System.out.println("Hello,"+" world!");
+
+		String hello = "안녕";
+		System.out.println(hello);
+	}
+
+}
