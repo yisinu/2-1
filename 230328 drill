@@ -1,0 +1,58 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class rockscissorspaper {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());
+        int count = 1;
+        int computer = 0;
+
+        int W = 0; //승
+        int D = 0; //무
+        int L = 0; //패
+
+        while(count <= N)						      //총 N판 진행
+        { 					
+            computer = Integer.parseInt(br.readLine());
+ 
+            								            	//컴퓨터와 게임한 결과에 따라 W,D,L의 숫자를 1 더함
+
+            if(count%3 == 1)				    	//교수님 - 가위
+            {            	 
+                if(computer == 1){				//컴퓨터 - 가위
+                    D++;
+                }else if(computer == 2){	//컴퓨터 - 바위
+                    L++;
+                }else{						      	//컴퓨터 - 보
+                    W++;
+                }
+            }else if(count%3 == 2){				//교수님 - 바위
+                if(computer == 1){
+                    W++;
+                }else if(computer == 2){
+                    D++;
+                }else {
+                    L++;
+                }
+            }else {							        	//교수님 - 보
+                if (computer == 1) {
+                    L++;
+                } else if (computer == 2) {
+                    W++;
+                } else {
+                    D++;
+                }
+            }
+            count++; 						        	//이번 판 종료 후 다음 판 진행, 카운트 +1
+        }
+
+        System.out.println(W);
+        System.out.println(D);
+        System.out.println(L);
+
+    }
+
+}
