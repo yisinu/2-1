@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 
 class Student {
 	private String name; 	//요롷게 해줘야 캡슐화가 되는 거다
-	private String id;		//그럼 캡슐화가 된 놈을 외부에서 어떻게 갖다 쓰느냐!?
+	private String id;	//그럼 캡슐화가 된 놈을 외부에서 어떻게 갖다 쓰느냐!?
 	private int mileage;	//접근자와 생성자!
 	private static int studentCount = 0;
 
