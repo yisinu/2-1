@@ -1,0 +1,85 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class Student {
+	private String name;
+	private String id;
+	private int mileage;
+	private static int count=0;
+	
+	Student(String name, String id) {
+		this.name = name;
+		this.id = id;
+		count++;
+	}
+	
+	public void addmileage(int value) {
+		this.mileage += value;		
+	}
+	
+	public boolean isPass() {
+		if (mileage >= 500) {
+            System.out.println(name + "("+ id + "): " + mileage + "->PASS");
+			return true;
+		} else {
+			System.out.println(name + "("+ id + "): " + mileage + "->FAIL");
+			return false;
+		}
+	}
+	
+	
+	public static int getStudentCount() {
+		return count;
+	}
+
+	public String getHakbun() {
+		if (id.length()==8) {
+			return id.substring(0,2);
+		} else {
+			return id.substring(2,4);
+		}
+	}
+	public boolean isHakbun(String x) {
+		return getHakbun().equals(x);
+	}
+		
+}
+	
+	
+
+
+public class Main {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int studentNumber = Integer.parseInt(br.readLine());
+		
+		for (int i=0; i<studentNumber; i++) {
+			String studentName = br.readLine();
+			String hakbun = br.readLine();
+			
+			int M = Integer.parseInt(br.readLine());
+			Student student = new Student(studentName, hakbun);
+			
+			
+			for (int j=0; j<M; j++) {
+                int mileage = Integer.parseInt(br.readLine());
+				student.addmileage(mileage); 
+			}
+			student.isPass();
+
+			String input = br.readLine();
+			
+			if("getHakbun".equals(input)){
+				System.out.println(student.getHakbun());
+			} else {
+                String num = "";
+                
+                num = input.substring(9, input.length()-1);
+                 
+                System.out.println(student.isHakbun(num));
+			}
+		}
+		
+	}
+}
